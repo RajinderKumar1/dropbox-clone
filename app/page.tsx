@@ -920,8 +920,7 @@ export default function Home() {
               <path
                 d="M22.0304 20.9697L17.0607 16.0001L22.0304 11.0304L20.9697 9.96973L16.0001 14.9394L11.0304 9.96973L9.96973 11.0304L14.9394 16.0001L9.96973 20.9697L11.0304 22.0304L16.0001 17.0607L20.9697 22.0304L22.0304 20.9697Z"
               />
-            </svg></div></a
-        ><a id="partner-info-button" href="#" className="partner-info-button w-inline-block"
+            </svg></div></a><a id="partner-info-button" href="#" className="partner-info-button w-inline-block"
         ><div className="partner-info-icon-embed w-embed">
             <div className="partner-icon-container">
               <svg className="partner-info-icon" id="partner-info-icon" viewBox="0 0 16 16">

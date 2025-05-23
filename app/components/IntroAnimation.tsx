@@ -114,46 +114,14 @@ const IntroAnimation = () => {
 
     };
 
-  
-    const calcBezier = (t: number, a1: number, a2: number) => {
-      return (((1.0 - 3.0 * a2 + 3.0 * a1) * t + (3.0 * a2 - 6.0 * a1)) * t + 3.0 * a1) * t;
-    };
-
-    const binarySubdivide = (
-      x: number,
-      lowerBound: number,
-      upperBound: number,
-      mX1: number,
-      mX2: number
-    ) => {
-      let currentX: number, currentT: number;
-      let i = 0;
-      const precision = 0.0000001;
-      const maxIterations = 12;
-
-      do {
-        currentT = lowerBound + (upperBound - lowerBound) / 2.0;
-        currentX = calcBezier(currentT, mX1, mX2) - x;
-        if (currentX > 0.0) upperBound = currentT;
-        else lowerBound = currentT;
-      } while (Math.abs(currentX) > precision && ++i < maxIterations);
-
-      return currentT;
-    };
-
     handleIntroResize(false);
     window.addEventListener('load', () => handleIntroResize(false));
     window.addEventListener('resize', () => handleIntroResize(false));
     window.addEventListener('scroll', () => handleIntroScroll(true), { passive: true });
 
-    if (navForHomeScroll) navForHomeScroll.style.transform = 'translateX(0px)';
-    if (navButton) navButton.tabIndex = -1;
-    if (navForHomeScroll) navForHomeScroll.setAttribute('inert', '');
-    if (outroPage) outroPage.setAttribute('inert', '');
-    if (partnerInfoButton) partnerInfoButton.setAttribute('inert', '');
   }, []);
 
-  return null; // This component only runs effects and doesn't render visible DOM
+  return null; // This component only runs effects and doesn't render visible DOM so thats why i return null
 };
 
 export default IntroAnimation;
