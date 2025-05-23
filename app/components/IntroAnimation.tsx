@@ -21,7 +21,7 @@ const IntroAnimation = () => {
 
     let baseWindowSize: number;
     const initialScale = 2;
-    let scrollTimeout: Timeout;
+    let scrollTimeout: number;
     const easeFunction = CB(1, 0.25, 0.85, 1);
 
     const desktopTransformations = [
