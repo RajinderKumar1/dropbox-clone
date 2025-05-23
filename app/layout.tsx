@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'Dropbox Brand Guidelines',
-  description: 'Official Dropbox brand assets and guidelines.',
+  title: 'Dropbox Clone By Rajinder Kumar',
+  description: 'A responsive Dropbox homepage clone with smooth animations, built using Next.js, TypeScript, and Tailwind CSS. Crafted by Rajinder Kumar, frontend developer.',
   themeColor: '#ffffff',
   icons: {
     icon: 'https://cdn.prod.website-files.com/66c503d081b2f012369fc5d2/67336e1ef555445999b4a0a3_favicon.ico',
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="home">
         <div className="home-load-in-critical-styles w-embed">
-        {children}
+          {children}
         </div>
 
         {/* External scripts (best practice using next/script) */}
