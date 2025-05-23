@@ -10,28 +10,18 @@ const IntroAnimation = () => {
     const navTiles = document.querySelectorAll('.nav-tile') as NodeListOf<HTMLElement>;
     const navTileGridlines = document.querySelectorAll('.nav-tile.nav-tile-gridlines') as NodeListOf<HTMLElement>;
     const navButton = document.querySelector('#nav-button') as HTMLElement;
-    const navButtonGridline = document.querySelector('.nav-button.nav-button-gridline') as HTMLElement;
-    const navButtonTitle1 = document.querySelector('.nav-button-title-1') as HTMLElement;
-    const navButtonTitle2 = document.querySelector('.nav-button-title-2') as HTMLElement;
     const horizontalTileLines = document.querySelectorAll(
       '.nav-tile.nav-tile-gridlines .tile-line.nav-t, .nav-tile.nav-tile-gridlines .tile-line.nav-b'
     ) as NodeListOf<HTMLElement>;
     const verticalTileLines = document.querySelectorAll(
       '.nav-tile.nav-tile-gridlines .tile-line.nav-l, .nav-tile.nav-tile-gridlines .tile-line.nav-r'
     ) as NodeListOf<HTMLElement>;
-    const navWrapperGridlines = document.querySelector('.nav-wrapper-gridlines') as HTMLElement;
-    const outroPage = document.querySelector('.outro-page') as HTMLElement;
-    const partnerInfoButton = document.getElementById('partner-info-button') as HTMLElement;
-    const scrollChevronsForScroll = document.querySelector('.scroll-chevrons') as HTMLElement;
-
+ 
     if (!navForHomeScroll || !navButton) return;
 
-    let firstNavButtonBreakpoint: number;
-    let secondNavButtonBreakpoint: number;
     let baseWindowSize: number;
     const initialScale = 2;
-    let scrollTimeout: any;
-    let currentMenuTileState: number;
+    let scrollTimeout: Timeout;
     const easeFunction = CB(1, 0.25, 0.85, 1);
 
     const desktopTransformations = [
@@ -44,33 +34,28 @@ const IntroAnimation = () => {
       [1.5, -0.25], [-0.25, -1.5], [2, -3], [-2, -3]
     ];
 
-    let transitionTimeout: any;
-    let shouldSmoothlyTransitionToState3 = false;
-    let scrollingFromState1 = true;
-
-    const handleIntroResize = (animated = false) => {
+  
+    const handleIntroResize = () => {
       if (document.documentElement.scrollHeight - window.innerHeight - window.scrollY <= 200) {
         window.scrollTo(0, document.documentElement.scrollHeight);
       }
 
       baseWindowSize = Math.max(window.innerWidth, window.innerHeight);
-      secondNavButtonBreakpoint = 0.05 + baseWindowSize / 5000;
-      firstNavButtonBreakpoint = 0;
 
-      handleIntroScroll(animated);
+      handleIntroScroll();
     };
 
-    const handleIntroScroll = (animated = true) => {
+    const handleIntroScroll = () => {
       if (!handleIntroScroll.throttled) {
         handleIntroScroll.throttled = true;
         requestAnimationFrame(() => {
-          introScrollHandler(animated);
+          introScrollHandler();
           handleIntroScroll.throttled = false;
         });
       }
     };
 
-    const introScrollHandler = (animated = true) => {
+    const introScrollHandler = () => {
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
         if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 200) {
@@ -114,10 +99,10 @@ const IntroAnimation = () => {
 
     };
 
-    handleIntroResize(false);
-    window.addEventListener('load', () => handleIntroResize(false));
-    window.addEventListener('resize', () => handleIntroResize(false));
-    window.addEventListener('scroll', () => handleIntroScroll(true), { passive: true });
+    handleIntroResize();
+    window.addEventListener('load', () => handleIntroResize());
+    window.addEventListener('resize', () => handleIntroResize());
+    window.addEventListener('scroll', () => handleIntroScroll(), { passive: true });
 
   }, []);
 
