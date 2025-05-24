@@ -10,6 +10,7 @@ import IconographyTile from "./components/nav-tiles/IconographyTile";
 import ColorTile from "./components/nav-tiles/ColorTile";
 import ImageTile from "./components/nav-tiles/ImageTile";
 import MotionTile from "./components/nav-tiles/MotionTile";
+import IntroHeading from "./components/IntroHeading";
 
 export default function Home() {
   const dayCounterRef = useRef<number>(0);
@@ -145,6 +146,8 @@ export default function Home() {
             <MotionTile></MotionTile>
           </nav>
           <div className="nav-wrapper nav-wrapper-gridlines">
+            <IntroHeading></IntroHeading>
+
             <div className="menu">
               <div className="tile-menu-tile nav-button nav-button-gridline">
                 <div className="tile-line nav-l"></div>
@@ -255,21 +258,9 @@ export default function Home() {
                 </svg>
               </div>
             </div>
-            <div className="nav-button-content">
-              <div className="nav-button-title-container">
-                <h3 className="nav-button-title nav-button-title-1">
-                  At Dropbox, our Brand Guidelines help us infuse everything we make
-                  with identity.
-                </h3>
-                <h3 className="nav-button-title nav-button-title-2">
-                  From icons to illustration, logos to language, this collection is
-                  the foundation for how Dropbox looks, feels, and sounds like
-                  Dropbox.
-                </h3>
-                <div className="w-embed w-script">
 
-                </div>
-              </div>
+            <div className="nav-button-content">
+
               <div className="nav-button-svg menu-logo w-embed">
                 <svg viewBox="0 0 46 42" fill="currentColor">
                   <path
@@ -293,6 +284,7 @@ export default function Home() {
                   <path d="M32.6719 29.1094H8.32812V31.6719H32.6719V29.1094Z" />
                 </svg>
               </div>
+
               <div className="nav-button-svg menu-arrow w-embed">
 
 
@@ -314,8 +306,10 @@ export default function Home() {
                 </svg>
               </div>
             </div>
+
             <div className="home-logo-container w-embed">
-              <svg className="home-logo" viewBox="120 120 1462 1462">
+
+              <svg className="home-logo invert" viewBox="120 120 1462 1462">
                 <path
                   d="M663.477 555.977L850.079 673.172L663.477 790.366L476.906 673.172L663.477 555.977ZM663.477 791.542L850.079 908.739L663.477 1025.93L476.906 908.739L663.477 791.542ZM851.951 908.739L1038.52 791.542L1225.09 908.739L1038.52 1025.93L851.951 908.739ZM1225.09 673.172L1038.52 790.366L851.951 673.172L1038.52 555.977L1225.09 673.172ZM1037.59 1065.78L851.015 1182.97L664.413 1065.78L851.015 948.585L1037.59 1065.78Z"
                 />
